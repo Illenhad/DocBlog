@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
@@ -9,4 +10,4 @@ def index(request: HttpRequest) -> HttpResponse:
     :param requests: This is the request object that is sent to the server
     :return: The index template file is being returned.
     """
-    return render(request=request, template_name='blog/index.html')
+    return render(request=request, template_name='blog/index.html', context={'date': datetime.now()})
